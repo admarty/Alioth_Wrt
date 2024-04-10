@@ -3,11 +3,11 @@
 #set -e
 
 K_ROOT_DIR=$(pwd)
-KERNEL_DEFCONFIG=alioth_nethunter_defconfig
+KERNEL_DEFCONFIG=alioth_openwrt_defconfig
 ANYKERNEL3_DIR=$K_ROOT_DIR/AnyKernel3/
-FINAL_KERNEL_ZIP=Bifr0st_Alioth_1.0.zip
+FINAL_KERNEL_ZIP=OpenWrt_Alioth_1.0.zip
 MODULES_OUT_DIR=$K_ROOT_DIR/out/MODULES_OUT
-RESULT_FOLDER=$K_ROOT_DIR/../../android/Bifr0st_out
+RESULT_FOLDER=$K_ROOT_DIR/../../android/openwrt_out
 export ARCH=arm64
 
 # Speed up build process
@@ -31,10 +31,10 @@ echo -e "***********************************************$nocol"
 make $KERNEL_DEFCONFIG O=out
 make -j$(nproc --all) O=out \
                       ARCH=arm64 \
-                      CC=$K_ROOT_DIR/../../android/toolchains/prebuilts_clang-r445002/bin/clang \
+                      CC=$K_ROOT_DIR/../../linux-x86/clang-r445002/bin/clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=$K_ROOT_DIR/../../android/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
-                      CROSS_COMPILE_ARM32=$K_ROOT_DIR/../../android/toolchains/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
+                      CROSS_COMPILE=$K_ROOT_DIR/../../aarch64-linux-android-4.9/bin/aarch64-linux-android- \
+                      CROSS_COMPILE_ARM32=$K_ROOT_DIR/../../arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
 
 echo -e "$yellow**** Setting up directories ****$nocol"
 if [ ! -d "$RESULT_FOLDER" ]; then
