@@ -29,12 +29,12 @@ echo -e "$blue***********************************************"
 echo "          BUILDING KERNEL          "
 echo -e "***********************************************$nocol"
 make $KERNEL_DEFCONFIG O=out
-make -j$(nproc --all) O=out \
+make -j1$(nproc --all) O=out \
                       ARCH=arm64 \
-                      CC=$K_ROOT_DIR/../../linux-x86/clang-r445002/bin/clang \
+                      CC=$K_ROOT_DIR/../../toolchain/clang-r445002/bin/clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=$K_ROOT_DIR/../../aarch64-linux-android-4.9/bin/aarch64-linux-android- \
-                      CROSS_COMPILE_ARM32=$K_ROOT_DIR/../../arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
+                      CROSS_COMPILE=$K_ROOT_DIR/../../toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
+                      CROSS_COMPILE_ARM32=$K_ROOT_DIR/../../toolchain/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 
 echo -e "$yellow**** Setting up directories ****$nocol"
 if [ ! -d "$RESULT_FOLDER" ]; then
