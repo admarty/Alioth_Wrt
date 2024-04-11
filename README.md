@@ -1,5 +1,5 @@
-# Bifr0st Kernel
-A customized kernel for Alioth devices with NetHunter support.
+# Openwrt Kernel
+A customized kernel for Alioth devices with Openwrt and NetHunter support.
 
 ## How to compile
 
@@ -10,8 +10,8 @@ Once you get these toolchains downloaded,
 
 Clone the repo
 ```
-git clone https://github.com/Hani-K/Bifr0st.git
-cd Bifr0st
+git clone https://github.com/admarty/Alioth_Wrt
+cd Alioth_Wrt
 ```
 
 Now you need to pull the latest version of KernelSU as it is required to compile the kernel.
